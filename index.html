@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Tools Hub</title>
+    <!-- Monospace Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. Global Design Tokens (Hacker Design Framework)
+           ========================================================================== */
+        :root {
+            --bg-main: #000000;
+            --bg-sidebar: #0a0a0a;
+            --bg-card: #080808;
+            --bg-card-hover: #121212;
+            
+            --border-color: #333333;
+            --border-hover: #9d4edd;
+            
+            --text-primary: #f0f0f0;
+            --text-secondary: #888888;
+            
+            --accent-primary: #9d4edd;
+        }
+
+        /* ==========================================================================
+           2. Universal Reset & Strict Angularity
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            font-family: 'Fira Code', 'Courier New', monospace !important;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 48px 24px;
+        }
+
+        /* Minimalist Scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+            border-left: 1px solid var(--border-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--border-hover);
+        }
+
+        /* ==========================================================================
+           3. Centered Layout Container
+           ========================================================================== */
+        .hub-container {
+            max-width: 1160px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* ==========================================================================
+           4. Header
+           ========================================================================== */
+        .hub-header {
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-card);
+            padding: 24px 28px;
+        }
+
+        .hub-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        /* ==========================================================================
+           5. 3-Wide Tools Grid
+           ========================================================================== */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .tool-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 24px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            min-height: 90px;
+        }
+
+        .tool-card:hover {
+            border-color: var(--border-hover);
+            background-color: var(--bg-card-hover);
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.3;
+            transition: color 0.2s ease;
+        }
+
+        .tool-card:hover .card-title {
+            color: var(--accent-primary);
+        }
+
+        .card-arrow {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            line-height: 1;
+            transition: transform 0.2s ease, color 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .tool-card:hover .card-arrow {
+            color: var(--accent-primary);
+            transform: translateX(6px);
+        }
+
+        /* ==========================================================================
+           6. Responsive Breakpoints
+           ========================================================================== */
+        @media (max-width: 960px) {
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 24px 16px;
+                align-items: flex-start;
+            }
+            .hub-header {
+                padding: 20px;
+            }
+            .hub-title {
+                font-size: 1.25rem;
+            }
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="hub-container">
+        <!-- Main Hub Header -->
+        <header class="hub-header">
+            <h1 class="hub-title">Developer Tools Portal</h1>
+        </header>
+
+        <!-- 3-Wide Tools Grid -->
+        <section class="tools-grid">
+            <a href="fe-stats/" class="tool-card">
+                <h2 class="card-title">Fire Emblem Stats</h2>
+                <span class="card-arrow">➔</span>
+            </a>
+
+            <a href="dailies/" class="tool-card">
+                <h2 class="card-title">Daily Game Solver</h2>
+                <span class="card-arrow">➔</span>
+            </a>
+
+            <a href="elo-ranker/" class="tool-card">
+                <h2 class="card-title">Elo Ranker</h2>
+                <span class="card-arrow">➔</span>
+            </a>
+        </section>
+    </main>
+
+</body>
+</html>
