@@ -151,7 +151,19 @@
         }
 
         /* ==========================================================================
-           6. Responsive Breakpoints
+           6. Footer
+           ========================================================================== */
+        .hub-footer { text-align: right; }
+        .hub-footer a {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .hub-footer a:hover { color: var(--accent-primary); }
+
+        /* ==========================================================================
+           7. Responsive Breakpoints
            ========================================================================== */
         @media (max-width: 960px) {
             .tools-grid {
@@ -201,6 +213,10 @@
                 <span class="card-arrow">➔</span>
             </a>
         </section>
+
+        <footer class="hub-footer">
+            <a href="privacy.html">Privacy Policy</a>
+        </footer>
     </main>
 
 </body>
